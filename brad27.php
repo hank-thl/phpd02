@@ -1,7 +1,7 @@
 <?php
     include 'bradapis.php';
 
-    $id = 'A123456789';
+    $id = 'B123404320';
 
     if(checkTWId($id)){
         echo "OK";
