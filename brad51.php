@@ -8,14 +8,14 @@ use LDAP\Result;
 
     
    
-    $sql = "SELECT id,cname,tel,birthday FROM cust";
+    $sql = "SELECT id,cname `cust-name`,tel,birthday FROM cust";
     // $result = $mysqli->query($sql);
     // var_dump($result);
 
     // $row = $result->fetch_object();
     // echo "{$row->id}:{$row->cname}:{$row->tel}:{$row->birthday}<br>";
     // $row = $result->fetch_object();
-    // echo "{$row->id}:{$row->cname}:{$row->tel}:{$row->birthday}<br>";
+    // echo "{$row->id}:{$row->{'cust-name'}}:{$row->tel}:{$row->birthday}<br>";
     // echo $result->num_rows . "<br>";
 
     // while($row = $result->fetch_object()){

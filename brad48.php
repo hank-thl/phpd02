@@ -19,7 +19,7 @@
     $cname = 'Eric'; $tel = '321'; $birthday = '1991-11-22';
     $sql = "INSERT INTO cust(cname,tel,birthday) VALUES (?,?,?)";
     $stmt = $mysqli->prepare($sql);
-    var_dump($stmt);
+    // var_dump($stmt);
     $stmt->bind_param('sss',$cname,$tel,$birthday);
     $stmt->execute();
     
