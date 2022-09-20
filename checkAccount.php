@@ -1,5 +1,10 @@
 <?php
     include('sql.php');
+
+    spl_autoload_register(function($className){
+        require_once $className. '.php';
+    });
+    session_start();
     if(!isset($_REQUEST['account'])) header('Location: login.php');
 
     $account = $_REQUEST['account']; $password = $_REQUEST['password'];
@@ -17,6 +22,8 @@
 
         // 驗證密碼
         if(password_verify($password, $member->password)){
+            $_SESSION['cart'] = new Cart();
+            $_SESSION['member'] = $member;
             header('Location: main.php');
         }else{
             header('Location: login.php');

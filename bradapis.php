@@ -86,6 +86,9 @@
         }function avg(){
             return $this->sum()/ 3;
         }
+        function setMath($math){
+            $this->math = $math;
+        }
     }
 
 ?>
