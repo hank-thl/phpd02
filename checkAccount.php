@@ -5,6 +5,7 @@
         require_once $className. '.php';
     });
     session_start();
+    
     if(!isset($_REQUEST['account'])) header('Location: login.php');
 
     $account = $_REQUEST['account']; $password = $_REQUEST['password'];

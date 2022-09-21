@@ -9,12 +9,13 @@
         $password = password_hash($_REQUEST['password'],PASSWORD_DEFAULT) ;
         $realname = $_REQUEST['realname'];
 
-        $icon = null;
+        $icon = null; $icontype=null;
         if($_FILES['icon']['error'] == 0){
             $icon = addslashes(file_get_contents($_FILES['icon']['tmp_name'])) ;
+            $icontype =$_FILES['icon']['type'];
         }
-        $sql = "INSERT INTO member (account,`password`,realname,icon) VALUES
-                ('{$account}','{$password}','{$realname}','{$icon}')";
+        $sql = "INSERT INTO member (account,`password`,realname,icon,icontype ) VALUES
+                ('{$account}','{$password}','{$realname}','{$icon}','{$icontype}')";
 
         if($mysqli->query($sql)){
             header('Location:login.php');
