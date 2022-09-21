@@ -1,3 +1,30 @@
+<meta charset="UTF-8">
+<?php
+    
+    include('sql.php');
+
+    // 註冊後取得account 進行註冊
+    if(isset($_REQUEST['account'])){  
+        $account = $_REQUEST['account'];
+        $password = password_hash($_REQUEST['password'],PASSWORD_DEFAULT) ;
+        $realname = $_REQUEST['realname'];
+
+        $icon = null;
+        if($_FILES['icon']['error'] == 0){
+            $icon = addslashes(file_get_contents($_FILES['icon']['tmp_name'])) ;
+        }
+        $sql = "INSERT INTO member (account,`password`,realname,icon) VALUES
+                ('{$account}','{$password}','{$realname}','{$icon}')";
+
+        if($mysqli->query($sql)){
+            header('Location:login.php');
+        }else{
+            echo 'Error' . $sql ;
+        }
+        
+        
+    }
+?>
 <script>
     var xhttp = new XMLHttpRequest();
 
